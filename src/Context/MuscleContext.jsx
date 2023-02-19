@@ -25,9 +25,6 @@ export default function MuscleProvider({ children }) {
 
     //   console.log('muscleGroups[15]', muscleGroups[])
 
-    async function handleAutoComplete() {
-
-    }
 
     async function handleSearchExercises(e) {
         console.log('exerciseSearch', exerciseSearch)
@@ -35,15 +32,16 @@ export default function MuscleProvider({ children }) {
         console.log('objectValue', objectValue)
         // 1) Take the user's input
         // 2) compare it to the list of items in the muscleGroups Object and access that key
-
-        // 3) place the value of that corresponding object into the fetch function
+        // 3) Add the
+        // 4) place the value of that corresponding object into the fetch function
         const results = await getExerciseByMuscle(objectValue);
         console.log('results', results);
       }
 
     const value = {
         exerciseSearch, setExerciseSearch,
-        handleAutoComplete, handleSearchExercises,
+        handleSearchExercises,
+        muscleGroups,
     };
     
     return <MuscleContext.Provider value={value}>
