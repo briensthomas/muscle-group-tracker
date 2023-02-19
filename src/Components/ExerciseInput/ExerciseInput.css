@@ -1,7 +1,31 @@
-input {
-    border: 1px solid #999;
-    padding: 8px;
+.exerciseInputList {
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.exerciseInputList label {
+    color: #535353;
+    text-align: center;
+    /* align-items: center; */
+}
+
+.exerciseInputList input {
     width: 300px;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #999;
+    text-align: center;
+    font-size: 16px;
+}
+
+.exerciseInputList button {
+    width: fit-content;
+    display: flex;
+    margin-top: 0.5rem;
+    justify-self: center;
 }
 
 .no-autocomplete {
@@ -32,6 +56,6 @@ input {
     font-weight: 700;
 }
 
-.authocomplete li:not(:last-of-type) {
+.autocomplete li:not(:last-of-type) {
     border-bottom: 1px solid #999;
 }

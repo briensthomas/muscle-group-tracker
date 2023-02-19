@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './ExerciseInput.css'
 import { useMuscleContext} from '../../Context/MuscleContext.jsx';
+import ExerciseResults from './ExerciseResults/ExerciseResults';
 
 export default function ExerciseInput() {
   const [userInput, setUserInput] = useState('');
@@ -36,7 +37,6 @@ export default function ExerciseInput() {
     setUserInput(e.currentTarget.innerText);
     // set the state we use for searching with the full name from the suggestion
     setExerciseSearch(e.currentTarget.innerText);
-    // search for exercises that target the selected muscle
     handleSearchExercises(exerciseSearch);
   }
 
@@ -86,21 +86,23 @@ export default function ExerciseInput() {
   }
 
   return (
-    <div>
-        <input 
-            type={'text'}
+    <div className='exerciseInputList'>
+      <label>
+        Search for an Exercise by Muscle Group
+        <input type={'text'}
             placeholder={'Add an exercise to your workout'} 
             onChange={handleAutoComplete}
             value={userInput}
             onKeyDown={onKeyDown}
             />
-            {/* There should be a button here to take the user's input and add it to the list of exercises, passed up through Context to the ExerciseList sibling */}
-            <button
-            onClick={handleSearchExercises}>
+            </label>
+            
+            <button onClick={handleSearchExercises}>
               Search for Exercises
             </button>
             {renderAutoComplete()}
 
+    <ExerciseResults />
     </div>
   )
 }

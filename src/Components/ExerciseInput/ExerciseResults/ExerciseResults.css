@@ -1,0 +1,17 @@
+.muscleSearchResultsList {
+    border: 1px solid #999;
+    list-style: none;
+    margin-top: 10px;
+    overflow-y: auto;
+    padding-left: 0;
+    width: calc(300px + 1rem);
+}
+
+.exercise {
+    padding: 0.25rem;
+}
+
+.exercise:hover {
+    background-color: #999;;
+    cursor: pointer;
+}
