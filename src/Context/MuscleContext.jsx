@@ -5,7 +5,7 @@ const MuscleContext = createContext();
 export default function MuscleProvider({ children }) {
     const [exerciseSearch, setExerciseSearch] = useState('');
 
-    let muscleGroupNumbers = {
+    let muscleGroups = {
         'Biceps brachii': '1',
         'Anterior deltoid': '2',
         'Serratus anterior': '3',
@@ -23,7 +23,7 @@ export default function MuscleProvider({ children }) {
         'Soleus': '15',
       };
 
-    //   console.log('muscleGroupNumbers[15]', muscleGroupNumbers[])
+    //   console.log('muscleGroups[15]', muscleGroups[])
 
     async function handleAutoComplete() {
 
@@ -31,10 +31,10 @@ export default function MuscleProvider({ children }) {
 
     async function handleSearchExercises(e) {
         console.log('exerciseSearch', exerciseSearch)
-        let objectValue = muscleGroupNumbers[exerciseSearch];
+        let objectValue = muscleGroups[exerciseSearch];
         console.log('objectValue', objectValue)
         // 1) Take the user's input
-        // 2) compare it to the list of items in the muscleGroupNumbers Object and access that key
+        // 2) compare it to the list of items in the muscleGroups Object and access that key
 
         // 3) place the value of that corresponding object into the fetch function
         const results = await getExerciseByMuscle(objectValue);
