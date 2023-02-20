@@ -7,6 +7,14 @@
     list-style: none;
 }
 
+.exerciseList li:first-child {
+    margin-top: 8px;
+}
+
 .exercises {
+    /* margin-top: 8px; */
+    padding: 8px;
     list-style: none;
+    border: 1px solid #999;
+    width: calc(300px + 1rem);
 }

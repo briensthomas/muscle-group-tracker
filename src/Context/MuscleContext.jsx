@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getExerciseByMuscle, getExerciseByPagination } from "../Services/exercises";
+import { getExerciseByMuscle, getExerciseByPagination, getAllMuscles } from "../Services/exercises";
 const MuscleContext = createContext();
 
 export default function MuscleProvider({ children }) {
@@ -7,6 +7,8 @@ export default function MuscleProvider({ children }) {
     const [muscleSearchResults, setMuscleSearchResults] = useState([]);
     const [exerciseList, setExerciseList] = useState([]);
     const [musclesTargetedList, setMusclesTargetedList] = useState([]);
+    const [exerciseArray, setExerciseArray] = useState();
+    const [onExerciseList, setOnExerciseList] = useState([]);
 
     let muscleGroups = {
         'Biceps brachii': '1',
@@ -53,11 +55,13 @@ export default function MuscleProvider({ children }) {
 
     const value = {
         exerciseSearch, setExerciseSearch,
+        exerciseArray, setExerciseArray, 
         muscleSearchResults, setMuscleSearchResults, 
         handleSearchExercises, handleNextPagination, 
         handlePreviousPagination, 
         exerciseList, setExerciseList,
-        musclesTargetedList, setMusclesTargetedList,   
+        onExerciseList, setOnExerciseList,
+        musclesTargetedList, setMusclesTargetedList, getAllMuscles,   
         muscleGroups,
     };
     

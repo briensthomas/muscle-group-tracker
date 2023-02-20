@@ -3,30 +3,35 @@ import { useMuscleContext } from '../../../Context/MuscleContext'
 import './ExerciseResults.css'
 
 export default function ExerciseResults() {
-    const [exerciseArray, setExerciseArray] = useState();
 
     const { muscleSearchResults, handleNextPagination, 
         handlePreviousPagination, exerciseList,
-        setExerciseList } = useMuscleContext();
+        setExerciseList, exerciseArray, setExerciseArray, 
+        onExerciseList, setOnExerciseList } = useMuscleContext();
+
+        
+        function handleAddExerciseToList(exercise) {
+            let exerciseObj = {...exercise};
+            console.log('exerciseObj', exerciseObj)
+            const exerciseMap = exerciseList.map((exercise) => exercise.name)
+        if (!exerciseMap.includes(exerciseObj.name)) {
+            setExerciseList([...exerciseList, exerciseObj]);
+            setOnExerciseList([...onExerciseList, ...exerciseObj.muscles])
+        }
+    }
+    
+    console.log('onExerciseList', onExerciseList)
 
     useEffect(() => {
         setExerciseArray(muscleSearchResults.results)
     }, [muscleSearchResults.results]);
-
-    function handleAddExerciseToList(exercise) {
-        let exerciseObj = {...exercise};
-        const exerciseMap = exerciseList.map((exercise) => exercise.name)
-        if (!exerciseMap.includes(exerciseObj.name)) {
-            setExerciseList([...exerciseList, exerciseObj]);
-        }
-    }
-
+    
   return (
     <ul className='muscleSearchResultsList'>
         {exerciseArray && exerciseArray.map((exercise) => 
         <li className='exercise'
         key={exercise.id}
-        // without the onClick using a parameter of e and an arrow function, it infinitely passes exercises to the list
+
         onClick={(e) => handleAddExerciseToList(exercise)}
         value={exercise}>
             {exercise.name}
