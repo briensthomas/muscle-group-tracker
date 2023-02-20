@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './ExerciseInput.css'
 import { useMuscleContext} from '../../Context/MuscleContext.jsx';
 import ExerciseResults from './ExerciseResults/ExerciseResults';
@@ -12,7 +12,6 @@ export default function ExerciseInput() {
   const { handleSearchExercises, exerciseSearch, setExerciseSearch, muscleGroups } = useMuscleContext();
   
   const suggestions = Object.keys(muscleGroups);
-  // console.log('suggestions', suggestions);
 
   function handleAutoComplete(e) {
     const userInput = e.currentTarget.value;
@@ -79,6 +78,7 @@ export default function ExerciseInput() {
 
   useEffect(() => {
     handleSearchExercises();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exerciseSearch])
 
   return (

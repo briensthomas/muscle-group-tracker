@@ -1,8 +1,6 @@
 export async function getExerciseByMuscle(muscleGroupValue) {
-    console.log('muscleGroupValue', muscleGroupValue)
     const data = await fetch(`https://wger.de/api/v2/exercise/?language=2&muscles=${muscleGroupValue}`);
     
-    console.log('data.url', data.url)
     return data.json();
 }
 

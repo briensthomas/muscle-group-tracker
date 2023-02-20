@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useMuscleContext } from '../../Context/MuscleContext'
 import './MuscleDiagram.css'
 
 export default function MuscleDiagram() {
-  const { muscleGroups, exerciseList, setExerciseSearch, getAllMuscles, exerciseArray, onExerciseList } = useMuscleContext();
+  const { setExerciseSearch, getAllMuscles, onExerciseList } = useMuscleContext();
   
   const [muscleList, setMuscleList] = useState([])
   
@@ -11,7 +11,6 @@ export default function MuscleDiagram() {
     muscleList.forEach((muscle) => {
       if (onExerciseList.some((exercise) => exercise === muscle.id)) {
         muscle.active = true;
-        console.log('muscle', muscle)
         return muscle;
       }
       return muscle;
@@ -25,14 +24,13 @@ export default function MuscleDiagram() {
       }
       const newMuscleList = muscleList.map((muscle) => ({
         ...muscle, active : false}))
-        console.log('newMuscleList', newMuscleList)
+
         setMuscleList(newMuscleList);
-        console.log('muscleList', muscleList)
         fetchMuscles();
         compareLists();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [compareLists()])
       
-      console.log('muscleList', muscleList);
   return (
     <ul className='muscleDiagram'>
         Are you missing any muscle groups from your exercise?

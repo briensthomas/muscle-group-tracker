@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useMuscleContext } from '../../../Context/MuscleContext'
 import './ExerciseResults.css'
 
@@ -12,7 +12,6 @@ export default function ExerciseResults() {
         
         function handleAddExerciseToList(exercise) {
             let exerciseObj = {...exercise};
-            console.log('exerciseObj', exerciseObj)
             const exerciseMap = exerciseList.map((exercise) => exercise.name)
         if (!exerciseMap.includes(exerciseObj.name)) {
             setExerciseList([...exerciseList, exerciseObj]);
@@ -20,10 +19,10 @@ export default function ExerciseResults() {
         }
     }
     
-    console.log('onExerciseList', onExerciseList)
 
     useEffect(() => {
         setExerciseArray(muscleSearchResults.results)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [muscleSearchResults.results]);
     
   return (
@@ -36,8 +35,7 @@ export default function ExerciseResults() {
         value={exercise}>
             {exercise.name}
         </li>)}
-        {/* Is there data in the exercise array, and are there enough 
-        exercises to warrant pagination? */}
+
         { exerciseArray && muscleSearchResults.count > 30 ? 
         <section className='paginationButtons'>
             
