@@ -6,19 +6,24 @@
     margin-top: 1rem;
     list-style: none;
     padding-left: none;
-    margin-top: 5px;
 }
 
 .muscleDiagram li {
     width: calc(300px + 1rem);
-    /* border: 1px solid #999; */
+    border: 1px solid white;
     list-style: none;
     overflow-y: auto;
     text-align: center;
     justify-content: center;
-    padding-top: 5px;
+    padding: 8px;
 }
 
-.muscleDiagram li:not(:last-child) {
-    padding-bottom: 8px;
+.muscleDiagram li:first-child {
+    margin-top: 8px;
+}
+
+.muscleDiagram li:hover {
+    background: darkgray;
+    cursor: pointer;
+    font-weight: 700;
 }

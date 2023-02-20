@@ -5,8 +5,9 @@ import './ExerciseResults.css'
 export default function ExerciseResults() {
     const [exerciseArray, setExerciseArray] = useState();
 
-    const { muscleSearchResults, handleNextPagination, handlePreviousPagination, exerciseList,
-    setExerciseList } = useMuscleContext();
+    const { muscleSearchResults, handleNextPagination, 
+        handlePreviousPagination, exerciseList,
+        setExerciseList } = useMuscleContext();
 
     useEffect(() => {
         setExerciseArray(muscleSearchResults.results)
@@ -14,11 +15,9 @@ export default function ExerciseResults() {
 
     function handleAddExerciseToList(exercise) {
         let exerciseObj = {...exercise};
-        // Stumped on how to prevent duplicates from being added to the array
-        if (!exerciseList.includes(exerciseObj)) {
-            console.log('e.target.value', exerciseObj);
+        const exerciseMap = exerciseList.map((exercise) => exercise.name)
+        if (!exerciseMap.includes(exerciseObj.name)) {
             setExerciseList([...exerciseList, exerciseObj]);
-            console.log('exerciseList', exerciseList);
         }
     }
 

@@ -27,16 +27,15 @@ export default function MuscleProvider({ children }) {
       };
 
     async function handleSearchExercises(e) {
-        console.log('exerciseSearch', exerciseSearch)
-        let muscleValue = muscleGroups[exerciseSearch];
-        console.log('muscleValue', muscleValue)
-        // 1) Take the user's input
-        // 2) compare it to the list of items in the muscleGroups Object and access that key
-        // 3) Add the
-        // 4) place the value of that corresponding object into the fetch function
-        const data = await getExerciseByMuscle(muscleValue);
-        console.log('data', data);
-        setMuscleSearchResults(data)
+        if (exerciseSearch !== undefined) {
+
+console.log('exerciseSearch', exerciseSearch)
+            let muscleValue = muscleGroups[exerciseSearch];
+console.log('muscleValue', muscleValue)
+            const data = await getExerciseByMuscle(muscleValue);
+console.log('data', data);
+            setMuscleSearchResults(data)
+        }
       }
 
     const nextPage = muscleSearchResults.next;

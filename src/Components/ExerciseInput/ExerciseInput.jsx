@@ -25,7 +25,6 @@ export default function ExerciseInput() {
       setShowSuggestions(true);
       setUserInput(e.currentTarget.value)
   console.log('userInput', userInput);
-    // setExerciseSearch(e.currentTarget.value);
   }
 
   function onClick(e) {
@@ -34,10 +33,12 @@ export default function ExerciseInput() {
     setFiltered([]);
     setShowSuggestions(false);
     // fill the input with the selected suggestion
-    setUserInput(e.currentTarget.innerText);
+    // setUserInput(e.currentTarget.innerText);
     // set the state we use for searching with the full name from the suggestion
+    console.log('e.currentTarget.innerText', e.currentTarget.innerText);
     setExerciseSearch(e.currentTarget.innerText);
-    handleSearchExercises(exerciseSearch);
+    handleSearchExercises(e.currentTarget.innerText);
+    setUserInput('');
   }
 
   function onKeyDown(e) {
@@ -46,7 +47,7 @@ export default function ExerciseInput() {
       setActive(0);
       setUserInput(filtered[active]);
       setShowSuggestions(false);
-      handleSearchExercises(exerciseSearch)
+      // handleSearchExercises(exerciseSearch)
       // arrow up key
     } else if (e.keyCode === 38) {
       return (active === 0) ? null : setActive(active - 1);
@@ -65,6 +66,7 @@ export default function ExerciseInput() {
               return (
                 <li 
                 key={suggestion} 
+                onKeyDown={onKeyDown}
                 onClick={onClick}>
                   {suggestion}
                 </li>
@@ -86,7 +88,7 @@ export default function ExerciseInput() {
   return (
     <div className='exerciseInput'>
       <label>
-        Search for an Exercise by Muscle Group
+        Search for exercises by Muscle Group
         <input type={'text'}
             placeholder={'Add an exercise to your workout'} 
             onChange={handleAutoComplete}
