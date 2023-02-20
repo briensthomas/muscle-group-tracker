@@ -11,9 +11,6 @@ export default function ExerciseResults() {
         setExerciseArray(muscleSearchResults.results)
     }, [muscleSearchResults.results]);
 
-
-
-    // const results = muscleSearchResults.results;
     console.log('muscleSearchResults', muscleSearchResults);
 
   return (
@@ -23,14 +20,18 @@ export default function ExerciseResults() {
         key={exercise.id}>
             {exercise.name}
         </li>)}
-        
-        { exerciseArray && exerciseArray.length ? 
-        <section>
-                <button onClick={handlePreviousPagination}>
+        {/* Is there data in the exercise array, and are there enough 
+        exercises to warrant pagination? */}
+        { exerciseArray && muscleSearchResults.count > 30 ? 
+        <section className='paginationButtons'>
+            
+                <button onClick={handlePreviousPagination}
+                disabled={muscleSearchResults.previous ? false : true}>
                     Prev
                 </button>
 
-                <button onClick={handleNextPagination}>
+                <button onClick={handleNextPagination}
+                disabled={muscleSearchResults.next ? false : true}>
                     Next
                 </button>
         </section>

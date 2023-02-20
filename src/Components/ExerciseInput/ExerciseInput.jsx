@@ -41,13 +41,16 @@ export default function ExerciseInput() {
   }
 
   function onKeyDown(e) {
+    // enter key
     if (e.keyCode === 13) {
       setActive(0);
       setUserInput(filtered[active]);
       setShowSuggestions(false);
       handleSearchExercises(exerciseSearch)
+      // arrow up key
     } else if (e.keyCode === 38) {
       return (active === 0) ? null : setActive(active - 1);
+      // arrow down key
     } else if (e.keyCode === 40) {
       return (active - 1 === filtered.length) ? null : setActive(active + 1);
     }
@@ -58,14 +61,9 @@ export default function ExerciseInput() {
       if (filtered.length) {
         return (
           <ul className='autocomplete'>
-            {filtered.map((suggestion, index) => {
-              let className;
-              if (index === active) {
-                className = 'active';
-              }
+            {filtered.map((suggestion) => {
               return (
                 <li 
-                className={className} 
                 key={suggestion} 
                 onClick={onClick}>
                   {suggestion}
