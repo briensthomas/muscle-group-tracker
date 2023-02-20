@@ -28,12 +28,8 @@ export default function MuscleProvider({ children }) {
 
     async function handleSearchExercises(e) {
         if (exerciseSearch !== undefined) {
-
-console.log('exerciseSearch', exerciseSearch)
             let muscleValue = muscleGroups[exerciseSearch];
-console.log('muscleValue', muscleValue)
             const data = await getExerciseByMuscle(muscleValue);
-console.log('data', data);
             setMuscleSearchResults(data)
         }
       }

@@ -24,20 +24,13 @@ export default function ExerciseInput() {
       setFiltered(newFilteredSuggestions);
       setShowSuggestions(true);
       setUserInput(e.currentTarget.value)
-  console.log('userInput', userInput);
   }
 
   function onClick(e) {
-    // reset state to remove the list of suggestions
     setActive(0);
     setFiltered([]);
     setShowSuggestions(false);
-    // fill the input with the selected suggestion
-    // setUserInput(e.currentTarget.innerText);
-    // set the state we use for searching with the full name from the suggestion
-    console.log('e.currentTarget.innerText', e.currentTarget.innerText);
     setExerciseSearch(e.currentTarget.innerText);
-    handleSearchExercises(e.currentTarget.innerText);
     setUserInput('');
   }
 
@@ -47,7 +40,6 @@ export default function ExerciseInput() {
       setActive(0);
       setUserInput(filtered[active]);
       setShowSuggestions(false);
-      // handleSearchExercises(exerciseSearch)
       // arrow up key
     } else if (e.keyCode === 38) {
       return (active === 0) ? null : setActive(active - 1);
@@ -85,6 +77,10 @@ export default function ExerciseInput() {
     return <></>;
   }
 
+  useEffect(() => {
+    handleSearchExercises();
+  }, [exerciseSearch])
+
   return (
     <div className='exerciseInput'>
       <label>
@@ -97,7 +93,7 @@ export default function ExerciseInput() {
             />
             </label>
             
-            <button onClick={handleSearchExercises}>
+            <button onClick={(e) => setExerciseSearch(userInput)}>
               Search for Exercises
             </button>
             {renderAutoComplete()}
