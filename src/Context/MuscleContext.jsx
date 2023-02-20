@@ -26,9 +26,6 @@ export default function MuscleProvider({ children }) {
         'Soleus': '15',
       };
 
-    //   console.log('muscleGroups[15]', muscleGroups[])
-
-
     async function handleSearchExercises(e) {
         console.log('exerciseSearch', exerciseSearch)
         let muscleValue = muscleGroups[exerciseSearch];
