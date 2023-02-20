@@ -28,7 +28,7 @@ export default function ExerciseInput() {
     // setExerciseSearch(e.currentTarget.value);
   }
 
-  async function onClick(e) {
+  function onClick(e) {
     // reset state to remove the list of suggestions
     setActive(0);
     setFiltered([]);
@@ -84,7 +84,7 @@ export default function ExerciseInput() {
   }
 
   return (
-    <div className='exerciseInputList'>
+    <div className='exerciseInput'>
       <label>
         Search for an Exercise by Muscle Group
         <input type={'text'}

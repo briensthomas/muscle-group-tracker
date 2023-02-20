@@ -5,19 +5,31 @@ import './ExerciseResults.css'
 export default function ExerciseResults() {
     const [exerciseArray, setExerciseArray] = useState();
 
-    const { muscleSearchResults, handleNextPagination, handlePreviousPagination } = useMuscleContext();
+    const { muscleSearchResults, handleNextPagination, handlePreviousPagination, exerciseList,
+    setExerciseList } = useMuscleContext();
 
     useEffect(() => {
         setExerciseArray(muscleSearchResults.results)
     }, [muscleSearchResults.results]);
 
-    console.log('muscleSearchResults', muscleSearchResults);
+    function handleAddExerciseToList(exercise) {
+        let exerciseObj = {...exercise};
+        // Stumped on how to prevent duplicates from being added to the array
+        if (!exerciseList.includes(exerciseObj)) {
+            console.log('e.target.value', exerciseObj);
+            setExerciseList([...exerciseList, exerciseObj]);
+            console.log('exerciseList', exerciseList);
+        }
+    }
 
   return (
     <ul className='muscleSearchResultsList'>
         {exerciseArray && exerciseArray.map((exercise) => 
         <li className='exercise'
-        key={exercise.id}>
+        key={exercise.id}
+        // without the onClick using a parameter of e and an arrow function, it infinitely passes exercises to the list
+        onClick={(e) => handleAddExerciseToList(exercise)}
+        value={exercise}>
             {exercise.name}
         </li>)}
         {/* Is there data in the exercise array, and are there enough 

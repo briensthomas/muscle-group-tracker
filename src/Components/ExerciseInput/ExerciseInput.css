@@ -1,4 +1,4 @@
-.exerciseInputList {
+.exerciseInput {
     width: 33vw;
     display: flex;
     flex-direction: column;
@@ -6,13 +6,13 @@
     margin-top: 1rem;
 }
 
-.exerciseInputList label {
+.exerciseInput label {
     color: #535353;
     text-align: center;
     /* align-items: center; */
 }
 
-.exerciseInputList input {
+.exerciseInput input {
     width: 300px;
     padding: 8px;
     margin-top: 8px;
@@ -21,7 +21,7 @@
     font-size: 16px;
 }
 
-.exerciseInputList button {
+.exerciseInput button {
     width: fit-content;
     display: flex;
     margin-top: 0.5rem;

@@ -5,6 +5,8 @@ const MuscleContext = createContext();
 export default function MuscleProvider({ children }) {
     const [exerciseSearch, setExerciseSearch] = useState('');
     const [muscleSearchResults, setMuscleSearchResults] = useState([]);
+    const [exerciseList, setExerciseList] = useState([]);
+    const [musclesTargetedList, setMusclesTargetedList] = useState([]);
 
     let muscleGroups = {
         'Biceps brachii': '1',
@@ -39,7 +41,6 @@ export default function MuscleProvider({ children }) {
         console.log('data', data);
         setMuscleSearchResults(data)
       }
-// Instead of attempting to
 
     const nextPage = muscleSearchResults.next;
     const previousPage = muscleSearchResults.previous;
@@ -63,6 +64,8 @@ export default function MuscleProvider({ children }) {
         muscleSearchResults, setMuscleSearchResults, 
         handleSearchExercises, handleNextPagination, 
         handlePreviousPagination, 
+        exerciseList, setExerciseList,
+        musclesTargetedList, setMusclesTargetedList,   
         muscleGroups,
     };
     
