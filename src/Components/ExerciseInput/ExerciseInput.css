@@ -57,6 +57,12 @@
     font-weight: 700;
 }
 
+.autocomplete li.active {
+    background-color: darkgray;
+    cursor: pointer;
+    font-weight: 700;
+}
+
 .autocomplete li:not(:last-of-type) {
     border-bottom: 1px solid #999;
 }
