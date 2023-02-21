@@ -41,11 +41,9 @@ export default function ExerciseInput() {
       setShowSuggestions(false);
       // arrow up key
     } else if (e.keyCode === 38) {
-      console.log('active', active);
       return (active === 0) ? null : setActive(active - 1);
       // arrow down key
     } else if (e.keyCode === 40) {
-      console.log('active', active);
       return (active - 1 === filtered.length) ? null : setActive(active + 1);
     }
   }
