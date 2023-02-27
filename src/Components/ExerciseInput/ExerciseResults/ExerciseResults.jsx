@@ -37,7 +37,7 @@ export default function ExerciseResults() {
             {exercise.name}
         </li>)}
 
-        { exerciseArray && muscleSearchResults.count > 30 ? 
+        { exerciseArray && muscleSearchResults.count > 10 ? 
         <section className='paginationButtons'>
             
                 <button onClick={handlePreviousPagination}

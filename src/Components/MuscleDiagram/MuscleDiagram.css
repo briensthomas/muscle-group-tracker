@@ -23,7 +23,6 @@
 }
 
 .muscleDiagram li:hover {
-    background: darkgray;
     cursor: pointer;
     font-weight: 700;
 }
