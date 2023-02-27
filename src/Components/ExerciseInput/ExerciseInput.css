@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.exercise-search-btn button:hover {
+.exercise-search-btn:hover {
     font-weight: 700;
 }
 
