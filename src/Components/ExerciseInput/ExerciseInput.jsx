@@ -97,7 +97,8 @@ export default function ExerciseInput() {
             />
             </label>
             
-            <button onClick={(e) => setExerciseSearch(userInput)}>
+            <button className='exercise-search-btn'
+            onClick={(e) => setExerciseSearch(userInput)}>
               Search for Exercises
             </button>
             {renderAutoComplete()}

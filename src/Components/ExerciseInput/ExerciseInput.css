@@ -15,19 +15,30 @@
 }
 
 .exerciseInput input {
-    width: 300px;
+    width: calc(225px + 1rem);
     padding: 8px;
     margin-top: 8px;
     border: 1px solid #999;
+    border-radius: 5px;
     text-align: center;
     font-size: 16px;
 }
 
-.exerciseInput button {
-    width: fit-content;
+.exercise-search-btn {
+    width: calc(175px + 1rem);
     display: flex;
+    justify-content: center;
+    background-color: #24a0ed;
     margin-top: 0.5rem;
-    justify-self: center;
+    padding: .5rem;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.exercise-search-btn button:hover {
+    font-weight: 700;
 }
 
 .no-autocomplete {
@@ -41,6 +52,7 @@
     padding-left: 0;
     margin-top: 5px;
     border: 1px solid #999;
+    border-radius: 5px;
     list-style: none;
     overflow-y: auto;
     text-align: center;
@@ -49,6 +61,7 @@
 .autocomplete li {
     padding: 8px;
     list-style: none;
+    border-radius: 5px;
 }
 
 .autocomplete li:hover {

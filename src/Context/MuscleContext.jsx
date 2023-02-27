@@ -3,7 +3,7 @@ import { getExerciseByMuscle, getExerciseByPagination, getAllMuscles } from "../
 const MuscleContext = createContext();
 
 export default function MuscleProvider({ children }) {
-    const [exerciseSearch, setExerciseSearch] = useState('');
+    const [exerciseSearch, setExerciseSearch] = useState('Anterior deltoid');
     const [muscleSearchResults, setMuscleSearchResults] = useState([]);
     const [exerciseList, setExerciseList] = useState([]);
     const [musclesTargetedList, setMusclesTargetedList] = useState([]);

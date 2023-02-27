@@ -10,9 +10,10 @@ export default function ExerciseResults() {
         onExerciseList, setOnExerciseList } = useMuscleContext();
 
         
-        function handleAddExerciseToList(exercise) {
-            let exerciseObj = {...exercise};
-            const exerciseMap = exerciseList.map((exercise) => exercise.name)
+    function handleAddExerciseToList(exercise) {
+        let exerciseObj = {...exercise};
+        const exerciseMap = exerciseList.map((exercise) => exercise.name)
+
         if (!exerciseMap.includes(exerciseObj.name)) {
             setExerciseList([...exerciseList, exerciseObj]);
             setOnExerciseList([...onExerciseList, ...exerciseObj.muscles])

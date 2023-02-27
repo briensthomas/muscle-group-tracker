@@ -27,7 +27,6 @@ export default function MuscleDiagram() {
       const newMuscleList = muscleList.map((muscle) => ({
         ...muscle, active : false}))
         setMuscleList(newMuscleList);
-        console.log('muscleList', muscleList);
         compareLists();
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [compareLists()])
@@ -39,9 +38,11 @@ export default function MuscleDiagram() {
         <li key={muscle.id}
         value={muscle.name}
         onClick={(e) => setExerciseSearch(muscle.name)}
-        style={ muscle.active 
-            ? { background: 'chartreuse' } 
-            : { background: 'red' }} >
+        className={muscle.active ? 'onList' : ''}
+        // style={ muscle.active 
+        //     ? { background: '#4CAF50' } 
+        //     : { background: 'red' }} 
+            >
             {muscle.name}            
             </li>)}
         </ul>

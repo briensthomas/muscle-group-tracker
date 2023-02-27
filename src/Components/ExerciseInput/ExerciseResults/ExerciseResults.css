@@ -1,7 +1,8 @@
 .muscleSearchResultsList {
-    width: calc(300px + 1rem);
+    width: calc(225px + 1rem);
     border-top: none;
     border-bottom: none;
+    border-radius: 5px;
     list-style: none;
     margin-top: 10px;
     overflow-y: auto;
@@ -9,9 +10,12 @@
 }
 
 .muscleSearchResultsList li {
-    padding: 8px;
+    display: flex;
+    justify-content: center;
     list-style: none;
-    border: 1px solid #999
+    padding: 8px;
+    border: 1px solid #999;
+    border-radius: 5px;
 }
 
 .exercise {
@@ -33,14 +37,17 @@
 }
 
 .paginationButtons button {
-    background-color: #4CAF50;
+    width: calc(50px + 1rem);
+    background-color: #24a0ed;
     border: none;
     border-radius: 5px;
+    margin-top: 5px;
     padding: 8px;
     font-size: 16px;
 }
 
-.paginationButtons button:hover:enabled {
-    background-color: #999;
+.paginationButtons button:enabled:hover {
+    /* background-color: #999; */
+    font-weight: 700;
     cursor: pointer;
 }

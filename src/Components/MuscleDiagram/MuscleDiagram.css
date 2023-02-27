@@ -5,17 +5,17 @@
     align-items: center;
     margin-top: 1rem;
     list-style: none;
-    padding-left: none;
 }
 
 .muscleDiagram li {
-    width: calc(300px + 1rem);
-    border: 1px solid white;
+    width: calc(225px + 1rem);
+    margin-bottom: 1px;
     list-style: none;
     overflow-y: auto;
     text-align: center;
     justify-content: center;
     padding: 8px;
+    border-radius: 5px;
 }
 
 .muscleDiagram li:first-child {
@@ -26,4 +26,8 @@
     background: darkgray;
     cursor: pointer;
     font-weight: 700;
+}
+
+.onList {
+    background: #4CAF50;
 }

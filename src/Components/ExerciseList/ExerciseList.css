@@ -12,8 +12,11 @@
 }
 
 .exercises {
-    padding: 8px;
+    width: calc(225px + 1rem);
+    display: flex;
+    justify-content: center;
     list-style: none;
+    padding: 8px;
     border: 1px solid #999;
-    width: calc(300px + 1rem);
+    border-radius: 5px;
 }
