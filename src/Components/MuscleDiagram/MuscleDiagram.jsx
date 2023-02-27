@@ -38,10 +38,7 @@ export default function MuscleDiagram() {
         <li key={muscle.id}
         value={muscle.name}
         onClick={(e) => setExerciseSearch(muscle.name)}
-        className={muscle.active ? 'onList' : ''}
-        // style={ muscle.active 
-        //     ? { background: '#4CAF50' } 
-        //     : { background: 'red' }} 
+        className={muscle.active ? 'onList' : 'offList'}
             >
             {muscle.name}            
             </li>)}
