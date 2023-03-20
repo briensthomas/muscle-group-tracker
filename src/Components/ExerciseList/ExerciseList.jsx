@@ -7,7 +7,11 @@ export default function ExerciseList() {
   
     return (
     <ul className='exerciseList'>
-        Exercises in your Workout
+        <p>
+            Exercises in your Workout
+            <br/>
+            <br/>
+        </p>
         {exerciseList.map((exercise) => 
         <li key={exercise.id}
         className='exercises'>

@@ -44,7 +44,7 @@ export default function ExerciseInput() {
       return (active === 0) ? null : setActive(active - 1);
       // arrow down key
     } else if (e.keyCode === 40) {
-      return (active - 1 === filtered.length) ? null : setActive(active + 1);
+      return (active - 1 === filtered.length - 1) ? null : setActive(active + 1);
     }
   }
 
@@ -87,15 +87,16 @@ export default function ExerciseInput() {
 
   return (
     <div className='exerciseInput'>
-      <label>
+        <p>
         Search for exercises by Muscle Group
-        <input type={'text'}
+        </p>
+        <input id={'exercise-input'}
+            type={'text'}
             placeholder={'Add an exercise to your workout'} 
             onChange={handleAutoComplete}
             value={userInput}
             onKeyDown={onKeyDown}
             />
-            </label>
             
             <button className='exercise-search-btn'
             onClick={(e) => setExerciseSearch(userInput)}>

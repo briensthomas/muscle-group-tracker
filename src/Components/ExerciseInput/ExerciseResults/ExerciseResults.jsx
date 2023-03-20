@@ -3,12 +3,10 @@ import { useMuscleContext } from '../../../Context/MuscleContext'
 import './ExerciseResults.css'
 
 export default function ExerciseResults() {
-
     const { muscleSearchResults, handleNextPagination, 
         handlePreviousPagination, exerciseList,
         setExerciseList, exerciseArray, setExerciseArray, 
         onExerciseList, setOnExerciseList } = useMuscleContext();
-
         
     function handleAddExerciseToList(exercise) {
         let exerciseObj = {...exercise};
@@ -19,7 +17,6 @@ export default function ExerciseResults() {
             setOnExerciseList([...onExerciseList, ...exerciseObj.muscles])
         }
     }
-    
 
     useEffect(() => {
         setExerciseArray(muscleSearchResults.results)
@@ -31,7 +28,6 @@ export default function ExerciseResults() {
         {exerciseArray && exerciseArray.map((exercise) => 
         <li className='exercise'
         key={exercise.id}
-
         onClick={(e) => handleAddExerciseToList(exercise)}
         value={exercise}>
             {exercise.name}
@@ -39,16 +35,14 @@ export default function ExerciseResults() {
 
         { exerciseArray && muscleSearchResults.count > 10 ? 
         <section className='paginationButtons'>
-            
-                <button onClick={handlePreviousPagination}
+            <button onClick={handlePreviousPagination}
                 disabled={muscleSearchResults.previous ? false : true}>
                     Prev
-                </button>
-
-                <button onClick={handleNextPagination}
+            </button>
+            <button onClick={handleNextPagination}
                 disabled={muscleSearchResults.next ? false : true}>
                     Next
-                </button>
+            </button>
         </section>
          :  <></>
         }

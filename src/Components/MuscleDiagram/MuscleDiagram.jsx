@@ -33,15 +33,18 @@ export default function MuscleDiagram() {
       
   return (
     <ul className='muscleDiagram'>
-        Are you missing any muscle groups from your exercise?
+        <p>
+          Any Muscle Groups not targeted in your workout will display as *red*
+        </p>
         {muscleList.map((muscle) => 
         <li key={muscle.id}
-        value={muscle.name}
-        onClick={(e) => setExerciseSearch(muscle.name)}
-        className={muscle.active ? 'onList' : 'offList'}
-            >
-            {muscle.name}            
-            </li>)}
+          value={muscle.name}
+          title={`search for exercises targeting: ${muscle.name}`}
+          onClick={(e) => setExerciseSearch(muscle.name)}
+          className={muscle.active ? 'onList' : 'offList'}
+        >
+          {muscle.name}            
+        </li>)}
         </ul>
   )
 }
